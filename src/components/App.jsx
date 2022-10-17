@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from "./GlobalStyle";
 import { Layout } from './Layout';
 import { Sales } from "pages/Sales";
+import { Invoices } from "./Invoices";
 
 
 export const App = () => {
@@ -13,7 +14,9 @@ export const App = () => {
           <Route path="dashboard" element={<div>Dashboard</div>} />
           <Route path="sales" element={<Sales />} >
             <Route path="analytics" element={<div>Analytics</div>} />
-            <Route path="invoices" element={<div>Invoices</div>} />
+            <Route path="invoices" element={<Invoices />}>
+              <Route path=":invoiceId" element={<div>InvoiceDetails</div>}/>
+              </Route>
              <Route path="deposits" element={<div>Deposits</div>}/>
             </Route>
           <Route path="reports" element={<div>Reports</div>} />
