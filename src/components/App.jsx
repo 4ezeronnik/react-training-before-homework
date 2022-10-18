@@ -4,6 +4,7 @@ import { GlobalStyle } from "./GlobalStyle";
 import { Layout } from './Layout';
 import { Sales } from "pages/Sales";
 import { Invoices } from "./Invoices";
+import { InvoiceDetails } from "./InvoiceDetails";
 
 
 export const App = () => {
@@ -15,7 +16,7 @@ export const App = () => {
           <Route path="sales" element={<Sales />} >
             <Route path="analytics" element={<div>Analytics</div>} />
             <Route path="invoices" element={<Invoices />}>
-              <Route path=":invoiceId" element={<div>InvoiceDetails</div>}/>
+              <Route path=":invoiceId" element={<InvoiceDetails/>}/>
               </Route>
              <Route path="deposits" element={<div>Deposits</div>}/>
             </Route>
