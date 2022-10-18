@@ -17,8 +17,8 @@ export const InvoiceDetails = () => {
                     <p>Recipient: {invoice.recipient}</p>
                     <p>Account number: {invoice.account}</p>
                     <p>Total due: {invoice.total}$</p>
-                    <p>Invoice date: 01/01/2023</p>
-                    <p>Due date: 01/02/2023</p>
+                    <p>Invoice date: {new Date(invoice.date.created).toLocaleDateString()}</p>
+                    <p>Due date: {new Date(invoice.date.due).toLocaleDateString()}</p>
                      </div>
             )}
         </div>
