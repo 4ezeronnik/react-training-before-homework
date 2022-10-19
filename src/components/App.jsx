@@ -12,10 +12,13 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<div>Homepage index route</div>}/>
           <Route path="dashboard" element={<div>Dashboard</div>} />
           <Route path="sales" element={<Sales />} >
+            <Route index element={<div>Sales index route</div>} />
             <Route path="analytics" element={<div>Analytics</div>} />
             <Route path="invoices" element={<Invoices />}>
+              <Route index element={<div>Invoices index route</div>}/>
               <Route path=":invoiceId" element={<InvoiceDetails/>}/>
               </Route>
              <Route path="deposits" element={<div>Deposits</div>}/>

@@ -10,17 +10,19 @@ export const InvoiceDetails = () => {
         getInvoiceById(invoiceId).then(setInvoice);
     }, [invoiceId]);
 
+    if (!invoice) {
+        return null;
+    };
+
+    const { recipient, account, total, date } = invoice;
+
     return (
-        <div>
-            {invoice && (
                 <div>
-                    <p>Recipient: {invoice.recipient}</p>
-                    <p>Account number: {invoice.account}</p>
-                    <p>Total due: {invoice.total}$</p>
-                    <p>Invoice date: {new Date(invoice.date.created).toLocaleDateString()}</p>
-                    <p>Due date: {new Date(invoice.date.due).toLocaleDateString()}</p>
+                    <p>Recipient: {recipient}</p>
+                    <p>Account number: {account}</p>
+                    <p>Total due: {total}$</p>
+                    <p>Invoice date: {new Date(date.created).toLocaleDateString()}</p>
+                    <p>Due date: {new Date(date.due).toLocaleDateString()}</p>
                      </div>
-            )}
-        </div>
     );
 };
