@@ -26,8 +26,9 @@ export const App = () => {
             </Route>
           <Route path="reports" element={<div>Reports</div>} />
           <Route path="feedback" element={<div>Feedback</div>} />
-           <Route path="customers" element={<Customers/>} />
-        </Route>
+          <Route path="customers" element={<Customers />} />
+          <Route path="customer/:customerId" element={<div>Customer details</div>} />
+          </Route>
       </Routes>
       <GlobalStyle />
       <Toaster position="top-right" reverseOrder={false} />

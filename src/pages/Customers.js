@@ -1,12 +1,12 @@
 import { SearchBox } from 'components/SearchBox';
 import { getCustomers } from 'fakeApi';
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
 
 export const Customers = () => {
     const [customers, setCustomers] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
-    const filter = searchParams.get('filter') ?? "";
+    const filterParam = searchParams.get('filter') ?? "";
 
     useEffect(() => {
         getCustomers().then(setCustomers)
@@ -16,16 +16,20 @@ export const Customers = () => {
         setSearchParams(value !== "" ? { filter: value } : {});
     };
 
-    const visibleCustomers = customers.filter(customer =>
-        customer.name.toLowerCase().includes(filter.toLocaleLowerCase())
-    );
+    const visibleCustomers = useMemo(() => {
+        return customers.filter(customer =>
+            customer.name.toLowerCase().includes(filterParam.toLocaleLowerCase())
+        );
+    }, [customers, filterParam]);
 
     return (
         <main>
-            <SearchBox onChange={changeFilter}/>
+            <SearchBox value={filterParam} onChange={changeFilter}/>
         {visibleCustomers.length > 0 && (
             <ul>
-                {visibleCustomers.map(customer => <li key={customer.id}>{customer.name}</li>
+                    {visibleCustomers.map(customer => <li key={customer.id}>
+                        <Link to={`${customer.id}`}>{customer.name}</Link>
+                    </li>
                 )}
             </ul>
         )}

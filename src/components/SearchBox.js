@@ -1,7 +1,7 @@
-export const SearchBox = ({onChange}) => {
+export const SearchBox = ({value, onChange}) => {
     return (
         <div>
-            <input type="text" onChange={e => onChange(e.target.value)} />
+            <input type="text" value={value} onChange={e => onChange(e.target.value)} />
         </div>
     )
 }
