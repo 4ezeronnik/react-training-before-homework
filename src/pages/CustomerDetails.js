@@ -1,12 +1,11 @@
 import { getCustomerById } from "fakeApi";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 export const CustomerDetails = () => {
     const { customerId } = useParams();
     const [customer, setCustomer] = useState(null);
-
-    console.log(customer);
+    const location = useLocation();
 
     useEffect(() => {
         getCustomerById(Number(customerId)).then(setCustomer)
@@ -17,9 +16,12 @@ export const CustomerDetails = () => {
     };
 
     const { id, name } = customer;
+    const backLinkHref = location.state?.from ?? '/customers';
 
-    return <main>
-       <p> id: {id} </p>
+    return (<main>
+        <Link to={backLinkHref}>Back to customers</Link>
+        <p> id: {id} </p>
         <p>  Username: {name} </p>
-    </main>;
+    </main>
+    );
 };
