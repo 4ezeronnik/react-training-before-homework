@@ -3,7 +3,7 @@ import { getCustomers } from 'fakeApi';
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 
-export const Customers = () => {
+const Customers = () => {
     const location = useLocation();
     const [customers, setCustomers] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
@@ -37,3 +37,5 @@ export const Customers = () => {
     </main>
     );
 };
+
+export default Customers;

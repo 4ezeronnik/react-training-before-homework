@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { Box } from 'components/Box';
+import { Suspense } from 'react';
 
 const navItems = [
     { href: 'analytics', text: 'Analytics' },
@@ -18,7 +19,7 @@ const NavItem = styled(NavLink)`
 `;
 
 
-export const Sales = () => {
+const Sales = () => {
   return (
     <Box as="main" display="flex" flexDirection="column">
       <Box as="header" borderBottom="1px solid black" p={4}>
@@ -30,7 +31,11 @@ export const Sales = () => {
           ))}
         </Box>
       </Box>
-      <Outlet />
+      <Suspense fallback={null}>
+         <Outlet />
+     </Suspense>
     </Box>
   );
 };
+
+export default Sales;

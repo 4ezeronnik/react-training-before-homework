@@ -21,7 +21,7 @@ border-radius: 8px;
 
 `;
 
-export const Invoices = () => {
+const Invoices = () => {
     const [invoices, setInvoices] = useState([]);
 
     useEffect(() => {
@@ -41,3 +41,5 @@ export const Invoices = () => {
         </div>
     );
 };
+
+export default Invoices;

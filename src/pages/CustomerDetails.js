@@ -2,7 +2,7 @@ import { getCustomerById } from "fakeApi";
 import { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 
-export const CustomerDetails = () => {
+const CustomerDetails = () => {
     const { customerId } = useParams();
     const [customer, setCustomer] = useState(null);
     const location = useLocation();
@@ -25,3 +25,5 @@ export const CustomerDetails = () => {
     </main>
     );
 };
+
+export default CustomerDetails;

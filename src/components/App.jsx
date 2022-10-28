@@ -4,12 +4,14 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { GlobalStyle } from "./GlobalStyle";
 import { Layout } from './Layout';
 // import { Sales } from "pages/Sales";
-import { Invoices } from "./Invoices";
+// import Invoices  from "./Invoices";
 import { InvoiceDetails } from "./InvoiceDetails";
-import { Customers } from "pages/Customers";
-import { CustomerDetails } from "pages/CustomerDetails";
+// import Customers from "pages/Customers";
+import CustomerDetails from "pages/CustomerDetails";
 
 const Sales = lazy(() => import('../pages/Sales'));
+const Customers = lazy(() => import('../pages/Customers'));
+const Invoices = lazy(() => import('./Invoices'));
 
 export const App = () => {
   return (
